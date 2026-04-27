@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ELIXA Recovery Support Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-label="ELIXA chat workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Independent HCI research prototype</p>
+            <h1>ELIXA</h1>
+          </div>
+          <div class="status" aria-label="Privacy status">
+            <span class="dot" aria-hidden="true"></span>
+            Local session
+          </div>
+        </header>
+
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="kicker">Recovery, mental health, and social computing</p>
+            <h2>Reflective support for the moments between formal care and peer community.</h2>
+          </div>
+          <div class="research-card" aria-label="Research focus">
+            <span>Privacy</span>
+            <span>Trust</span>
+            <span>Relapse prevention</span>
+            <span>Support quality</span>
+          </div>
+        </section>
+
+        <section class="chat-panel" aria-label="Conversation">
+          <div class="notice" role="note">
+            ELIXA is a rule-based research mockup, not therapy, diagnosis, or crisis care. If there is immediate danger, call emergency services or 988 in the U.S.
+          </div>
+
+          <div id="messages" class="messages" aria-live="polite"></div>
+
+          <form id="chatForm" class="composer" autocomplete="off">
+            <label for="messageInput" class="sr-only">Message ELIXA</label>
+            <input
+              id="messageInput"
+              name="message"
+              type="text"
+              placeholder="Type a thought, craving, check-in, or support concern..."
+              maxlength="360"
+              required
+            />
+            <button type="submit" aria-label="Send message">
+              <span>Send</span>
+            </button>
+          </form>
+        </section>
+      </section>
+
+      <aside class="side-panel" aria-label="Research controls">
+        <section class="module">
+          <h2>Mode</h2>
+          <div class="segmented" role="radiogroup" aria-label="Conversation mode">
+            <button class="active" type="button" data-mode="reflect">Reflect</button>
+            <button type="button" data-mode="plan">Plan</button>
+            <button type="button" data-mode="peer">Peer</button>
+          </div>
+        </section>
+
+        <section class="module">
+          <h2>Session Signals</h2>
+          <div class="signal">
+            <span>Trust</span>
+            <meter id="trustMeter" min="0" max="100" value="58"></meter>
+          </div>
+          <div class="signal">
+            <span>Risk</span>
+            <meter id="riskMeter" min="0" max="100" value="24"></meter>
+          </div>
+          <div class="signal">
+            <span>Support fit</span>
+            <meter id="fitMeter" min="0" max="100" value="66"></meter>
+          </div>
+        </section>
+
+        <section class="module">
+          <h2>Ethics Toggles</h2>
+          <label class="toggle">
+            <input id="privacyToggle" type="checkbox" checked />
+            <span>Privacy-first wording</span>
+          </label>
+          <label class="toggle">
+            <input id="boundaryToggle" type="checkbox" checked />
+            <span>Clinical boundary reminders</span>
+          </label>
+          <label class="toggle">
+            <input id="peerToggle" type="checkbox" checked />
+            <span>Peer support framing</span>
+          </label>
+        </section>
+
+        <section class="module">
+          <h2>Research Notes</h2>
+          <ul id="notes" class="notes"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
